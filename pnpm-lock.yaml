@@ -23,18 +23,6 @@ importers:
       '@radix-ui/react-tabs':
         specifier: ^1.1.0
         version: 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@storybook/addon-themes':
-        specifier: ^8.2.9
-        version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.4(@babel/core@7.25.2)))
-      '@storybook/blocks':
-        specifier: ^8.2.9
-        version: 8.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.4(@babel/core@7.25.2)))
-      '@storybook/nextjs':
-        specifier: ^8.2.9
-        version: 8.2.9(esbuild@0.21.5)(next@14.2.7(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.4(@babel/core@7.25.2)))(type-fest@2.19.0)(typescript@5.5.4)(webpack-hot-middleware@2.26.1)(webpack@5.94.0(esbuild@0.21.5))
-      '@storybook/react':
-        specifier: ^8.2.9
-        version: 8.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.4(@babel/core@7.25.2)))(typescript@5.5.4)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -90,6 +78,18 @@ importers:
       '@storybook/addon-styling-webpack':
         specifier: ^1.0.0
         version: 1.0.0(storybook@8.2.9(@babel/preset-env@7.25.4(@babel/core@7.25.2)))(webpack@5.94.0(esbuild@0.21.5))
+      '@storybook/addon-themes':
+        specifier: ^8.2.9
+        version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.4(@babel/core@7.25.2)))
+      '@storybook/blocks':
+        specifier: ^8.2.9
+        version: 8.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.4(@babel/core@7.25.2)))
+      '@storybook/nextjs':
+        specifier: ^8.2.9
+        version: 8.2.9(esbuild@0.21.5)(next@14.2.7(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.4(@babel/core@7.25.2)))(type-fest@2.19.0)(typescript@5.5.4)(webpack-hot-middleware@2.26.1)(webpack@5.94.0(esbuild@0.21.5))
+      '@storybook/react':
+        specifier: ^8.2.9
+        version: 8.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.4(@babel/core@7.25.2)))(typescript@5.5.4)
       '@storybook/test':
         specifier: ^8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.4(@babel/core@7.25.2)))
