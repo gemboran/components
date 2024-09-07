@@ -5,6 +5,7 @@ import {getRouter} from "@storybook/nextjs/router.mock";
 import { withThemeByClassName } from "@storybook/addon-themes";
 import {TerminalCommandBlock} from "./blocks/terminal-command.block";
 
+// noinspection JSUnusedGlobalSymbols
 const preview: Preview = {
   parameters: {
     controls: {

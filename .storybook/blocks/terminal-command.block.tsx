@@ -8,6 +8,6 @@ export function TerminalCommandBlock({of}: {of?: any}) {
   if (resolvedOf.type !== 'story') return;
 
   return (
-    <TerminalCommand command={`shadcn add ${window.location.origin}/r/styles/default/${resolvedOf.story.title}.json`} />
+    <TerminalCommand command={`shadcn add ${window.location.origin}/r/styles/default/${resolvedOf.story.componentId}.json`} />
   )
 }
