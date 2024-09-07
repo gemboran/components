@@ -21,7 +21,7 @@ type Props = {
   onClick: () => void
 }
 
-export default function LoginWithGoogle({onClick}: Props) {
+export function LoginWithGoogle({onClick}: Props) {
   return (
     <Button
       variant="outline"
