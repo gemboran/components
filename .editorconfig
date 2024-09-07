@@ -1,13 +1,13 @@
 [*]
 charset = utf-8
 end_of_line = lf
-indent_size = 4
+indent_size = 2
 indent_style = space
 insert_final_newline = false
 max_line_length = 120
-tab_width = 4
+tab_width = 2
 
-[{*.ats,*.cts,*.mts,*.ts}]
+[{*.ats,*.cts,*.mts,*.ts,*.tsx}]
 indent_size = 2
 tab_width = 2
 

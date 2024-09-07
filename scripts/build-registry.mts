@@ -3,7 +3,7 @@
 // noinspection ES6PreferShortImport
 
 // @ts-nocheck
-import { promises as fs, existsSync } from "node:fs";
+import {ensureDirSync, ensureFileSync} from "fs-extra";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import template from "lodash.template";
@@ -22,6 +22,7 @@ import {
   type registryItemTypeSchema,
   registrySchema,
 } from "../registry/schema";
+import {readFile, writeFile, mkdtemp} from "node:fs/promises";
 
 const REGISTRY_PATH = path.join(process.cwd(), "public/r");
 
@@ -38,7 +39,7 @@ const project = new Project({
 });
 
 async function createTempSourceFile(filename: string) {
-  const dir = await fs.mkdtemp(path.join(tmpdir(), "shadcn-"));
+  const dir = await mkdtemp(path.join(tmpdir(), "shadcn-"));
   return path.join(dir, filename);
 }
 
@@ -50,9 +51,7 @@ async function buildStyles(registry: Registry) {
     const targetPath = path.join(REGISTRY_PATH, "styles", style.name);
 
     // Create directory if it doesn't exist.
-    if (!existsSync(targetPath)) {
-      await fs.mkdir(targetPath, { recursive: true });
-    }
+    ensureDirSync(targetPath);
 
     for (const item of registry) {
       if (!REGISTRY_INDEX_WHITELIST.includes(item.type)) {
@@ -73,7 +72,7 @@ async function buildStyles(registry: Registry) {
                   }
                 : _file;
 
-            const content = await fs.readFile(
+            const content = await readFile(
               path.join(process.cwd(), "registry", style.name, file.path),
               "utf8",
             );
@@ -110,8 +109,10 @@ async function buildStyles(registry: Registry) {
         });
 
       if (payload.success) {
-        await fs.writeFile(
-          path.join(targetPath, `${item.name}.json`),
+        const filePath = path.join(targetPath, `${item.name}.json`)
+        ensureFileSync(filePath);
+        await writeFile(
+          filePath,
           JSON.stringify(payload.data, null, 2),
           "utf8",
         );
@@ -123,7 +124,7 @@ async function buildStyles(registry: Registry) {
   // Build registry/styles/index.json.
   // ----------------------------------------------------------------------------
   const stylesJson = JSON.stringify(styles, null, 2);
-  await fs.writeFile(
+  await writeFile(
     path.join(REGISTRY_PATH, "styles/index.json"),
     stylesJson,
     "utf8",
@@ -157,7 +158,7 @@ async function buildStylesIndex() {
       files: [],
     };
 
-    await fs.writeFile(
+    await writeFile(
       path.join(targetPath, "index.json"),
       JSON.stringify(payload, null, 2),
       "utf8",
@@ -171,9 +172,7 @@ async function buildStylesIndex() {
 async function buildThemes() {
   const colorsTargetPath = path.join(REGISTRY_PATH, "colors");
   rimraf.sync(colorsTargetPath);
-  if (!existsSync(colorsTargetPath)) {
-    await fs.mkdir(colorsTargetPath, { recursive: true });
-  }
+  ensureDirSync(colorsTargetPath);
 
   const colorsData: Record<string, any> = {};
   for (const [color, value] of Object.entries(colors)) {
@@ -206,7 +205,7 @@ async function buildThemes() {
     }
   }
 
-  await fs.writeFile(
+  await writeFile(
     path.join(colorsTargetPath, "index.json"),
     JSON.stringify(colorsData, null, 2),
     "utf8",
@@ -324,7 +323,7 @@ async function buildThemes() {
       colors: base.cssVars,
     });
 
-    await fs.writeFile(
+    await writeFile(
       path.join(REGISTRY_PATH, `colors/${baseColor}.json`),
       JSON.stringify(base, null, 2),
       "utf8",
@@ -409,7 +408,7 @@ async function buildThemes() {
       );
     }
 
-    await fs.writeFile(
+    await writeFile(
       path.join(REGISTRY_PATH, "themes.css"),
       themeCSS.join("\n"),
       "utf8",
@@ -445,11 +444,9 @@ async function buildThemes() {
       const targetPath = path.join(REGISTRY_PATH, "themes");
 
       // Create directory if it doesn't exist.
-      if (!existsSync(targetPath)) {
-        await fs.mkdir(targetPath, { recursive: true });
-      }
+      ensureDirSync(targetPath)
 
-      await fs.writeFile(
+      await writeFile(
         path.join(targetPath, `${payload.name}.json`),
         JSON.stringify(payload, null, 2),
         "utf8",

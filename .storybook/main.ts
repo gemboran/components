@@ -20,10 +20,6 @@ const config: StorybookConfig = {
   },
   staticDirs: [
     "../public",
-    {
-      from: "../app/fonts",
-      to: "app/fonts",
-    },
   ],
 };
 export default config;

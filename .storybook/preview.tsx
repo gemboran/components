@@ -1,4 +1,4 @@
-import "../app/globals.css";
+import "./globals.css";
 import type { Preview } from "@storybook/react";
 import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/blocks";
 import {getRouter} from "@storybook/nextjs/router.mock";
@@ -8,6 +8,7 @@ import {TerminalCommandBlock} from "./blocks/terminal-command.block";
 // noinspection JSUnusedGlobalSymbols
 const preview: Preview = {
   parameters: {
+    layout: "centered",
     controls: {
       matchers: {
         color: /(background|color)$/i,
