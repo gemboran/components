@@ -1,5 +1,5 @@
 import { RegistryEntry } from "./schema";
 
-const registry: RegistryEntry[] = [
-];
+const registry: RegistryEntry[] = [];
+
 export default registry;

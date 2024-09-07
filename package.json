@@ -3,12 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
+    "build": "node registry/build.ts && npm run sb:build",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build --docs -o dist"
+    "sb:build": "storybook build --docs -o dist"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.1",
