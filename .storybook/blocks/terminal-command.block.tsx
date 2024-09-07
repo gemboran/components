@@ -9,6 +9,6 @@ export function TerminalCommandBlock({of}: {of?: any}) {
 
   return (
     <TerminalCommand
-      command={`shadcn add ${window.location.origin}/r/styles/default/${resolvedOf.story.componentId}.json`}/>
+      command={`shadcn add ${window.location.origin}/r/${resolvedOf.story.componentId}.json`}/>
   )
 }

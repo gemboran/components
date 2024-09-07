@@ -1,5 +1,5 @@
 import {Meta, StoryObj} from "@storybook/react";
-import {LoginWithGoogle} from "@/registry/default/atoms/button";
+import {LoginWithGoogle} from "@/components/atoms/button";
 import {RegistryEntry} from "@/registry/schema";
 
 export const LoginWithGoogleButton: Story = {
@@ -11,6 +11,9 @@ export const LoginWithGoogleButton: Story = {
 }
 
 const meta: Meta & { block: RegistryEntry } = {
+  title: "atoms/Button",
+  component: LoginWithGoogle,
+  id: "atoms/button",
   block: {
     name: "atoms/button",
     type: "registry:block",
@@ -18,14 +21,11 @@ const meta: Meta & { block: RegistryEntry } = {
     files: [
       {
         type: "registry:component",
-        path: "atoms/button.tsx",
+        path: "components/atoms/button.tsx",
         target: "components/atoms/button.tsx",
       }
     ],
   },
-  id: "atoms/button",
-  title: "atoms/Button",
-  component: LoginWithGoogle,
 }
 
 type Story = StoryObj<typeof meta>;

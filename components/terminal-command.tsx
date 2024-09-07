@@ -1,14 +1,9 @@
 "use client"
 
-import { ChevronDown, Copy, Terminal } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useState } from "react"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+import {ChevronDown, Copy, Terminal} from "lucide-react"
+import {Button} from "@/components/ui/button"
+import {useState} from "react"
+import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger,} from "@/components/ui/dropdown-menu"
 
 type PackageManager = "npm" | "yarn" | "pnpm" | "bun"
 
@@ -21,18 +16,18 @@ export function TerminalCommand({ command, initialPackageManager = "npm" }: Term
   const [packageManager, setPackageManager] = useState<PackageManager>(initialPackageManager)
   const [copied, setCopied] = useState(false)
 
-  const copyToClipboard = () => {
-    // noinspection JSIgnoredPromiseFromCall
-    navigator.clipboard.writeText(`${packageManager === "npm" ? "npx" : packageManager} ${command}`)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
-
   const packageManagerCommands: Record<PackageManager, string> = {
     npm: "npx",
     yarn: "yarn dlx",
     pnpm: "pnpm dlx",
     bun: "bunx --bun"
+  }
+
+  const copyToClipboard = () => {
+    // noinspection JSIgnoredPromiseFromCall
+    navigator.clipboard.writeText(`${packageManagerCommands[packageManager]} ${command}`)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
   }
 
   return (

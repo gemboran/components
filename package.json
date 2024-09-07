@@ -4,14 +4,14 @@
   "license": "MIT",
   "type": "module",
   "author": {
-    "name": "haqiramadhani",
-    "url": "https://buatan.id"
+    "name": "gemboran",
+    "url": "https://ui.buatan.id"
   },
   "scripts": {
     "dev": "pnpm build:registry && pnpm dev:docs",
-    "dev:docs": "storybook dev -p 6006",
+    "dev:docs": "storybook dev -p 6006 --docs",
     "build": "pnpm build:registry && pnpm build:docs",
-    "build:registry": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-registry.mts",
+    "build:registry": "tsx --tsconfig ./tsconfig.scripts.json registry/build.mts",
     "build:docs": "storybook build --docs -o dist",
     "lint": "pnpm biome check .",
     "ui": "pnpm dlx shadcn"
