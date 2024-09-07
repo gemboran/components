@@ -1,6 +1,6 @@
 import "../app/globals.css";
 import type { Preview } from "@storybook/react";
-import {Description, Title} from "@storybook/blocks";
+import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/blocks";
 import {getRouter} from "@storybook/nextjs/router.mock";
 import { withThemeByClassName } from "@storybook/addon-themes";
 import {TerminalCommandBlock} from "./blocks/terminal-command.block";
@@ -18,17 +18,15 @@ const preview: Preview = {
         return (
           <>
             <Title />
+            <Subtitle />
             <Description />
             <TerminalCommandBlock />
+            <Primary />
+            <Controls />
+            <Stories />
           </>
         );
       },
-    },
-    nextjs: {
-      router: {
-        basePath: "/app/",
-      },
-      appDirectory: true,
     },
   },
 
@@ -43,7 +41,9 @@ const preview: Preview = {
           dark: 'dark',
       },
       defaultTheme: 'system',
-  })]
+  })],
+
+  tags: ["autodocs"],
 };
 
 export default preview;
