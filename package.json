@@ -4,15 +4,15 @@
   "license": "MIT",
   "type": "module",
   "author": {
-    "name": "ilyichv",
-    "url": "https://x.com/ilyichv_"
+    "name": "haqiramadhani",
+    "url": "https://buatan.id"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "pnpm build:registry && next build",
+    "build": "pnpm build:registry && pnpm build:docs",
     "build:registry": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-registry.mts",
-    "start": "next start",
-    "lint": "pnpm biome check ."
+    "build:docs": "storybook build --docs -o dist",
+    "lint": "pnpm biome check .",
+    "ui": "pnpm dlx shadcn"
   },
   "packageManager": "pnpm@9.5.0",
   "dependencies": {
@@ -21,6 +21,10 @@
     "@radix-ui/react-dropdown-menu": "^2.1.1",
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-tabs": "^1.1.0",
+    "@storybook/addon-themes": "^8.2.9",
+    "@storybook/blocks": "^8.2.9",
+    "@storybook/nextjs": "^8.2.9",
+    "@storybook/react": "^8.2.9",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lodash.template": "^4.5.0",
@@ -34,14 +38,27 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^1.9.0",
+    "@storybook/addon-essentials": "^8.2.9",
+    "@storybook/addon-interactions": "^8.2.9",
+    "@storybook/addon-links": "^8.2.9",
+    "@storybook/addon-onboarding": "^8.2.9",
+    "@storybook/addon-styling-webpack": "^1.0.0",
+    "@storybook/addon-themes": "^8.2.9",
+    "@storybook/blocks": "^8.2.9",
+    "@storybook/nextjs": "^8.2.9",
+    "@storybook/react": "^8.2.9",
+    "@storybook/test": "^8.2.9",
     "@biomejs/biome": "1.8.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.7",
+    "eslint-plugin-storybook": "^0.8.0",
     "postcss": "^8",
     "rimraf": "^6.0.1",
+    "storybook": "^8.2.9",
     "tailwindcss": "^3.4.1",
     "tsx": "^4.19.0",
     "typescript": "^5"
