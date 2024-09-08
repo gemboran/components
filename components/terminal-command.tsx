@@ -33,7 +33,7 @@ export function TerminalCommand({ command, initialPackageManager = "npm" }: Term
   return (
     <div className="w-full mx-auto bg-white rounded-lg shadow-sm border border-gray-200 dark:border-neutral-800">
       <div className="flex items-center justify-between px-4 py-2 border-b border-gray-200">
-        <Terminal className="w-5 h-5 text-gray-500" />
+        <Terminal className="w-5 h-5 text-gray-50 bg-gray-800 rounded p-0.5"/>
         <div className="flex items-center space-x-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>

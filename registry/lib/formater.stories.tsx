@@ -6,7 +6,6 @@ export const CurrencyFormater: Story = {
   args: {
     code: `import {currencyFormater} from "@/lib/formater";\n\ncurrencyFormater(10000, "id-ID", "IDR");`,
     language: "typescript",
-    filename: "Currency"
   }
 }
 
@@ -14,7 +13,6 @@ export const DateFormater: Story = {
   args: {
     code: `import {currencyFormater} from "@/lib/formater";\n\ndateFormater(new Date(), "id-ID", {dateStyle: "medium"});`,
     language: "typescript",
-    filename: "Date"
   }
 }
 

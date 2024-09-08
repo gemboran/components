@@ -20,18 +20,22 @@ async function buildRegistry() {
     }
 
     if (typeof block.files === "object" && block.files.length) {
-      for (let file of block.files) {
-        if (typeof file === "string") file = {
-          path: file,
+      const files = [];
+      for (const item of block.files) {
+        const file = typeof item === "string" ? {
+          path: item,
           type: block.type,
-          content: await readFile(path.resolve(file), "utf8"),
-          target: file,
+          content: await readFile(path.resolve(item), "utf8"),
+          target: item,
+        } : {
+          ...item,
+          content: await readFile(path.resolve(item.path), "utf8"),
+          target: item.target || item.path
         }
-        else {
-          file.content = await readFile(path.resolve(file.path), "utf8");
-          file.target ??= file.path;
-        }
+        files.push(file);
       }
+
+      block.files = files;
     }
 
     const filePath = path.join(REGISTRY_PATH, block.name + ".json")
