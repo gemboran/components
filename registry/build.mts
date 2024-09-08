@@ -7,7 +7,7 @@ import {readFile, writeFile} from "node:fs/promises";
 const REGISTRY_PATH = path.resolve("public/r");
 
 async function buildRegistry() {
-  const pattern = path.resolve("registry/{blocks,ui}/*.stories.tsx");
+  const pattern = path.resolve("registry/**/*.stories.tsx");
   const files = await fg(pattern);
 
   for (const file of files) {

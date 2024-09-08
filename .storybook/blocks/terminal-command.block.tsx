@@ -3,12 +3,10 @@ import {TerminalCommand} from "@/components/terminal-command";
 import {useOf} from "@storybook/blocks";
 
 export function TerminalCommandBlock({of}: {of?: any}) {
-  const resolvedOf = useOf(of || 'story', ['story', 'meta']);
-
-  if (resolvedOf.type !== 'story') return;
+  const {story} = useOf(of || 'story', ['story']);
 
   return (
     <TerminalCommand
-      command={`shadcn add ${window.location.origin}/r/${resolvedOf.story.componentId}.json`}/>
+      command={`shadcn add ${window.location.origin}/r/${story.componentId}.json`}/>
   )
 }

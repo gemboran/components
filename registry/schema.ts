@@ -1,7 +1,8 @@
 // originally from shadcn-ui
 // https://github.com/shadcn-ui/ui/blob/main/apps/www/registry/schema.ts
 
-import { z } from "zod";
+import {z} from "zod";
+import {Meta} from "@storybook/react";
 
 export const blockChunkSchema = z.object({
   name: z.string(),
@@ -90,3 +91,5 @@ export const blockSchema = registryEntrySchema.extend({
 export type Block = z.infer<typeof blockSchema>;
 
 export type BlockChunk = z.infer<typeof blockChunkSchema>;
+
+export type CustomMeta = Meta & { block: RegistryEntry }

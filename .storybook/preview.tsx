@@ -1,9 +1,8 @@
 import "./globals.css";
-import type { Preview } from "@storybook/react";
-import {Controls, Description, Primary, Stories, Subtitle, Title} from "@storybook/blocks";
+import type {Preview} from "@storybook/react";
 import {getRouter} from "@storybook/nextjs/router.mock";
-import { withThemeByClassName } from "@storybook/addon-themes";
-import {TerminalCommandBlock} from "./blocks/terminal-command.block";
+import {withThemeByClassName} from "@storybook/addon-themes";
+import DocTemplate from "./blocks/doc-template";
 
 // noinspection JSUnusedGlobalSymbols
 const preview: Preview = {
@@ -16,19 +15,7 @@ const preview: Preview = {
       },
     },
     docs: {
-      page: () => {
-        return (
-          <>
-            <Title />
-            <Subtitle />
-            <Description />
-            <TerminalCommandBlock />
-            <Primary />
-            <Controls />
-            <Stories />
-          </>
-        );
-      },
+      page: DocTemplate
     },
   },
 

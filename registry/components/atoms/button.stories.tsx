@@ -1,6 +1,8 @@
-import {Meta, StoryObj} from "@storybook/react";
+// noinspection JSUnusedGlobalSymbols
+
+import {StoryObj} from "@storybook/react";
 import {LoginWithGoogle} from "@/components/atoms/button";
-import {RegistryEntry} from "@/registry/schema";
+import {CustomMeta} from "@/registry/schema";
 
 export const LoginWithGoogleButton: Story = {
   args: {
@@ -10,21 +12,15 @@ export const LoginWithGoogleButton: Story = {
   }
 }
 
-const meta: Meta & { block: RegistryEntry } = {
+const meta: CustomMeta = {
+  id: "atoms/button",
   title: "atoms/Button",
   component: LoginWithGoogle,
-  id: "atoms/button",
   block: {
     name: "atoms/button",
-    type: "registry:block",
+    type: "registry:component",
     registryDependencies: ["button"],
-    files: [
-      {
-        type: "registry:component",
-        path: "components/atoms/button.tsx",
-        target: "components/atoms/button.tsx",
-      }
-    ],
+    files: ["components/atoms/button.tsx"],
   },
 }
 
